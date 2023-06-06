@@ -1,71 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-	<!--begin::Head-->
-	<head><base href="">
-		<meta charset="utf-8" />
-		<title> @yield('title') </title>
-		<meta name="description" content="Craft admin dashboard live demo. Check out all the features of the admin panel. A large number of settings, additional services and widgets." />
-		<meta name="keywords" content="Craft, bootstrap, Angular 10, Vue, React, Laravel, admin themes, free admin themes, bootstrap admin, bootstrap dashboard" />
-		<link rel="canonical" href="Https://preview.keenthemes.com/start" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
-		<!--begin::Fonts-->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-		<!--end::Fonts-->
+@extends('layouts.app')
 
-		@include('includes.style')
-    </head>
-	<!--end::Head-->
+@section('title')
+    Departemen
+@endsection
 
-	<!--begin::Body-->
-	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
-		<!--begin::Main-->
-            <!--begin::Root-->
-            <div class="d-flex flex-column flex-root">
-                <!--begin::Page-->
-                <div class="page d-flex flex-row flex-column-fluid">
-                    <!--begin::Aside-->
-                    @include('includes.sidebar')
-                    <!--end::Aside-->
+@section('sub-header')
+<div class="toolbar" id="kt_toolbar">
+    <!--begin::Container-->
+    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+        <!--begin::Page title-->
+        <div class="d-flex align-items-center me-3">
+            <!--begin::Title-->
+            <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Departemen
+            <!--begin::Separator-->
+            <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+            <!--end::Separator-->
+            <!--begin::Description-->
+            <small class="text-muted fs-7 fw-bold my-1 ms-1">Halaman Utama</small>
+            <!--end::Description--></h1>
+            <!--end::Title-->
+        </div>
+        <!--end::Page title-->
+    </div>
+    <!--end::Container-->
+</div>
+@endsection
 
-                    <!--begin::Wrapper-->
-                    <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-                        <!--begin::Header-->
-                        @include('includes.header')
-                        <!--end::Header-->
+@section('content')
+<div class="post d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div id="kt_content_container" class="container">
+        <!--begin::Row-->
+        <div class="row gy-5 g-xl-8">
+            <!--begin::Col-->
+            <div class="card mb-5 mb-xl-8">
+                    <!--begin::Header-->
+                    <div class="card-header border-0 pt-5">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bolder fs-3 mb-1">Departemen</span>
+                            <span class="text-muted mt-1 fw-bold fs-7">Menampilkan semua departemen yang ada</span>
+                        </h3>
 
-                        <!--begin::Content-->
-                        @yield('content')
-                        <!--end::Content-->
-
-                        <!--begin::Footer-->
-                        @include('includes.footer')
-                        <!--end::Footer-->
+                        @can('tambah indikator')
+                            <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a user">
+                                <div class="button-add">
+                                    <a href="{{ url()->previous() }}" class="btn btn-sm btn-light-primary">
+                                    <!--begin::Svg Icon | path: icons/stockholm/Communication/Add-user.svg-->
+                                    <span class="svg-icon svg-icon-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                            <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
+                                        </svg>
+                                    </span>
+                                    <!--end::Svg Icon-->Tambah Departemen</a>
+                                </div>
+                            </div>
+                        @endcan
                     </div>
-                    <!--end::Wrapper-->
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body py-3 pt-10">
+                        <!--begin::Table container-->
+                        <div class="table-responsive">
+                            <!--begin::Table-->
+                            <table id="data-table" class="table table-striped border rounded gy-5 gs-7 dataTable no-footer">
+                                <thead>
+                                    <tr class="fw-bold fs-6 text-dark">
+                                        <th>No.</th>
+                                        <th>Departemen</th>
+                                        <th class="text-center">Aksi</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <!--end::Table-->
+                        </div>
+                        <!--end::Table container-->
+                    </div>
+                    <!--end::Body-->
                 </div>
-                <!--end::Page-->
-            </div>
-            <!--end::Root-->
+            <!--end::Col-->
+        </div>
+        <!--end::Row-->
+    </div>
+    <!--end::Container-->
+</div>
+@endsection
 
-            <!--begin::Scrolltop-->
-            <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-                <!--begin::Svg Icon | path: icons/stockholm/Navigation/Up-2.svg-->
-                <span class="svg-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <polygon points="0 0 24 0 24 24 0 24" />
-                            <rect fill="#000000" opacity="0.5" x="11" y="10" width="2" height="10" rx="1" />
-                            <path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
-                        </g>
-                    </svg>
-                </span>
-                <!--end::Svg Icon-->
-            </div>
-            <!--end::Scrolltop-->
-		<!--end::Main-->
-
-		@include('includes.script')
-	</body>
-	<!--end::Body-->
-</html>
+@push('javascript')
+    <script src="{{ asset('assets/js/pages/main/departemen.js') }}"></script>
+@endpush
