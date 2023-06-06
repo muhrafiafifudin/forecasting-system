@@ -18,6 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 // Department
 Route::group(['prefix' => 'departments', 'as' => 'department.'], function () {
     Route::get('/', 'App\Http\Controllers\Api\DepartmentController@index')->name('index');

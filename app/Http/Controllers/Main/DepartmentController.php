@@ -8,18 +8,9 @@ use App\Interfaces\DepartmentInterface;
 
 class DepartmentController extends Controller
 {
-    private $departmentInterface;
-
-    public function __construct(DepartmentInterface $departmentInterface)
-    {
-        $this->departmentInterface = $departmentInterface;
-    }
-
     public function index()
     {
-        $departments = $this->departmentInterface->findAll();
-
-        dd($departments);
+        //
     }
 
     public function store(Request $request)
