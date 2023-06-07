@@ -26,11 +26,13 @@ Route::get('/', function () {
     return view('pages.auth.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('pages.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('pages.dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function () {
+    // Dashboard
+    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     // Department
     Route::group(['prefix' => 'departemen', 'as' => 'department.'], function () {
         Route::get('/', 'App\Http\Controllers\Main\DepartmentController@index')->name('index');
