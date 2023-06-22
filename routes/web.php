@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Unit
     Route::group(['prefix' => 'unit', 'as' => 'unit.'], function () {
         Route::get('/', 'App\Http\Controllers\Main\UnitController@index')->name('index');
+        Route::post('/', 'App\Http\Controllers\Main\UnitController@store')->name('store');
+        Route::match(['put', 'patch'], '/{unit}', 'App\Http\Controllers\Main\UnitController@update')->name('update');
+        Route::delete('/{unit}', 'App\Http\Controllers\Main\UnitController@destroy')->name('destroy');
     });
     // Position
     Route::group(['prefix' => 'jabatan', 'as' => 'position.'], function () {

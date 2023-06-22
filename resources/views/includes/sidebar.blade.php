@@ -69,7 +69,7 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('unit') ? 'active' : '' }}" href="documentation/getting-started.html">
+                    <a class="menu-link {{ request()->is('unit') ? 'active' : '' }}" href="{{ route('unit.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/stockholm/Home/Library.svg-->
                             <span class="svg-icon svg-icon-2">
