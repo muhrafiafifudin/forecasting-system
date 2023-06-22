@@ -36,6 +36,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Department
     Route::group(['prefix' => 'departemen', 'as' => 'department.'], function () {
         Route::get('/', 'App\Http\Controllers\Main\DepartmentController@index')->name('index');
+        Route::post('/', 'App\Http\Controllers\Main\DepartmentController@store')->name('store');
+        Route::match(['put', 'patch'], '/{department}', 'App\Http\Controllers\Main\DepartmentController@update')->name('update');
+        Route::delete('/{department}', 'App\Http\Controllers\Main\DepartmentController@destroy')->name('destroy');
     });
     // Unit
     Route::group(['prefix' => 'unit', 'as' => 'unit.'], function () {
@@ -44,6 +47,10 @@ Route::group(['middleware' => 'auth'], function () {
     // Position
     Route::group(['prefix' => 'jabatan', 'as' => 'position.'], function () {
         Route::get('/', 'App\Http\Controllers\Main\PositionController@index')->name('index');
+    });
+    // Location
+    Route::group(['prefix' => 'lokasi', 'as' => 'location.'], function () {
+        Route::get('/', 'App\Http\Controllers\Main\LocationController@index')->name('index');
     });
     // Employrr
     Route::group(['prefix' => 'karyawan', 'as' => 'employee.'], function () {
