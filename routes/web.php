@@ -50,6 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Position
     Route::group(['prefix' => 'jabatan', 'as' => 'position.'], function () {
         Route::get('/', 'App\Http\Controllers\Main\PositionController@index')->name('index');
+        Route::post('/', 'App\Http\Controllers\Main\PositionController@store')->name('store');
+        Route::match(['put', 'patch'], '/{position}', 'App\Http\Controllers\Main\PositionController@update')->name('update');
+        Route::delete('/{position}', 'App\Http\Controllers\Main\PositionController@destroy')->name('destroy');
     });
     // Location
     Route::group(['prefix' => 'lokasi', 'as' => 'location.'], function () {

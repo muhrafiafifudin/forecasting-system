@@ -87,7 +87,7 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('jabatan') ? 'active' : '' }}" href="documentation/getting-started.html">
+                    <a class="menu-link {{ request()->is('jabatan') ? 'active' : '' }}" href="{{ route('position.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/stockholm/Home/Library.svg-->
                             <span class="svg-icon svg-icon-2">
