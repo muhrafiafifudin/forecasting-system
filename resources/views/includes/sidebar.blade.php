@@ -105,7 +105,7 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('lokasi') ? 'active' : '' }}" href="documentation/getting-started.html">
+                    <a class="menu-link {{ request()->is('lokasi') ? 'active' : '' }}" href="{{ route('location.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/stockholm/Home/Library.svg-->
                             <span class="svg-icon svg-icon-2">
@@ -123,7 +123,7 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('karyawan') ? 'active' : '' }}" href="documentation/getting-started/changelog.html">
+                    <a class="menu-link {{ request()->is('karyawan') ? 'active' : '' }}" href="{{ route('user.index') }}">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/stockholm/Files/File.svg-->
                             <span class="svg-icon svg-icon-2">

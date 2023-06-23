@@ -57,9 +57,12 @@ Route::group(['middleware' => 'auth'], function () {
     // Location
     Route::group(['prefix' => 'lokasi', 'as' => 'location.'], function () {
         Route::get('/', 'App\Http\Controllers\Main\LocationController@index')->name('index');
+        Route::post('/', 'App\Http\Controllers\Main\LocationController@store')->name('store');
+        Route::match(['put', 'patch'], '/{location}', 'App\Http\Controllers\Main\LocationController@update')->name('update');
+        Route::delete('/{location}', 'App\Http\Controllers\Main\LocationController@destroy')->name('destroy');
     });
     // Employrr
-    Route::group(['prefix' => 'karyawan', 'as' => 'employee.'], function () {
+    Route::group(['prefix' => 'karyawan', 'as' => 'user.'], function () {
         Route::get('/', 'App\Http\Controllers\Main\EmployeeController@index')->name('index');
     });
 });
