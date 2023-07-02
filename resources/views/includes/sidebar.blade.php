@@ -123,7 +123,8 @@
                     </a>
                 </div>
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('karyawan') ? 'active' : '' }}" href="{{ route('user.index') }}">
+                    {{-- <a class="menu-link {{ request()->is('karyawan') ? 'active' : '' }}" href="{{ route('user.index') }}"> --}}
+                    <a class="menu-link {{ request()->is('karyawan') ? 'active' : '' }}" href="#">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/stockholm/Files/File.svg-->
                             <span class="svg-icon svg-icon-2">
